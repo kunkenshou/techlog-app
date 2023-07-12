@@ -7,5 +7,6 @@
 
   Rails.application.routes.draw do
     devise_for :users # この1行が追加されている  
+    get 'home/top'
     root 'home#top'
 end
