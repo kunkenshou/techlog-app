@@ -1,4 +1,4 @@
-  #Rails.application.routes.draw do
+  # Rails.application.routes.draw do
   # get 'home/top'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -6,5 +6,6 @@
   # root "articles#index"
 
   Rails.application.routes.draw do
-  root 'home#top'
+    devise_for :users # この1行が追加されている  
+    root 'home#top'
 end
