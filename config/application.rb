@@ -7,6 +7,7 @@ Bundler.require(*Rails.groups)
 module TechlogApp
   class Application < Rails::Application
     config.load_defaults 7.0
+    config.i18n.default_locale = :ja # 追記
 
     config.generators do |g| # ここから追記
       g.assets false          # CSS, JavaScriptファイルを自動生成しない
@@ -19,3 +20,4 @@ module TechlogApp
     end  # ここまで追記
 end
 end
+
