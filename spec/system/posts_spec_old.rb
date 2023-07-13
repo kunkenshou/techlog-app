@@ -4,8 +4,8 @@ describe 'Post', type: :system do
   before do
     driven_by :selenium_chrome_headless # ヘッドレスモードで実行
     @user = create(:user) # ログイン用ユーザー作成
-    @post = create(:post, title: 'RSpec学習完了', content: 'System Specを作成した', user_id: @user.id)
-    @post2 = create(:post, title: 'RSpec学習完了 2', content: 'System Specを作成した 2', user_id: @user.id)
+    @post = create(:post, title: 'RSpec学習完了', content: 'System Specを作成した', user_id: @user.id) # 追加
+    @post2 = create(:post, title: 'RSpec学習完了 2', content: 'System Specを作成した 2', user_id: @user.id) # 追加
   end
 
   # 投稿フォーム
@@ -40,7 +40,8 @@ describe 'Post', type: :system do
       context 'パラメータが正常な場合' do
         it 'Postを作成できる' do
           expect { subject }.to change(Post, :count).by(1)
-          expect(current_path).to eq('/posts')
+          expect(current_path).to eq('/posts') # 修正
+          expect(current_path).to eq('/')
           expect(page).to have_content('投稿しました')
         end
       end
@@ -59,6 +60,7 @@ describe 'Post', type: :system do
     end
   end
 
+  ####### ここから追加 #######
   describe 'ログ詳細機能の検証' do
     before { visit "/posts/#{@post.id}" }
 
@@ -69,6 +71,7 @@ describe 'Post', type: :system do
     end
   end
 
+####### ここから追加 #######
   describe 'ログ一覧機能の検証' do
     before { visit '/posts' }
 
