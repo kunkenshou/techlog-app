@@ -9,7 +9,7 @@
   Rails.application.routes.draw do
     devise_for :users # この1行が追加されている  
     get 'home/top'
-    root 'home#top'
+    root 'posts#index' # 修正
 
     resources :posts, only: [:new, :create, :show, :index, :destroy] # 修正
 end
