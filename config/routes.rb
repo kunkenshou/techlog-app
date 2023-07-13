@@ -11,5 +11,5 @@
     get 'home/top'
     root 'home#top'
 
-    resources :posts, only: [:new, :create, :show, :index] # 追加
+    resources :posts, only: [:new, :create, :show, :index, :destroy] # 修正
 end
